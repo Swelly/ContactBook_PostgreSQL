@@ -18,10 +18,22 @@ puts "Hey gurl"
 # ^ selects all(*) from contacts in address_book database
 # db.close
 
-db = PG.connect( :dbname => 'address_book', :host => 'localhost')
+puts "What's your first name?"
+first = gets.chomp
+puts "And your last name is...?"
+last = gets.chomp
+puts "How old are you?"
+age = gets.chomp.to_i
+puts "What's your gender?"
+gender = gets.chomp
+puts "Are you down to get down?"
+dtgd = gets.chomp
+puts "Uhh sweet... phone number?"
+phone = gets.chomp
 
+db = PG.connect( :dbname => 'address_book', :host => 'localhost')
 sql = "insert into contacts (first, last, age, gender, dtgd, phone)
-  values ('ben', 'israeli', 26, 'm', 'true', '310-923-2319')"
+  values ('#{first}', '#{last}', #{age}, '#{gender}', #{dtgd}, '#{phone}')"
 
 db.exec(sql)
 db.close
