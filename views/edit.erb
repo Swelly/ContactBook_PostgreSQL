@@ -1,0 +1,23 @@
+<h1>Edit a contact: </h1>
+<!-- EDITING SPECIFIC ID(Contact) -->
+<form action="/contacts/<%=@contact['id']%>" method="post">
+
+  <p><input type="text" name="first" value="<%= @contact['first'] %>" autofocus></p>
+
+  <p><input type="text" value="<%= @contact['last'] %>" name="last"
+    maxlength="20"></p>
+
+  <p><input type="number" value="<%= @contact['age'] %>" name="age"
+  maxlength="3"></p>
+
+  <p><input type="text" value="<%= @contact['gender'] %>" name="gender"
+  maxlength="1"></p>
+
+  <p><input type="text" value="<%= @contact['dtgt'] %>" name="dtgt"
+    maxlength ="5"></p>
+
+  <p><input type="text" value="<%= @contact['phone'] %>" name="phone"
+  maxlength="15"></p>
+
+  <button>Update</button>
+</form>

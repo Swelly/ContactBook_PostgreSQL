@@ -1,5 +1,11 @@
 <h1>Contact:  </h1>
 <h2><%= @contact['first'] %>, <%= @contact['last'] %></h2>
+<p><em>ID</em> #<%= @contact['id'] %></p>
+
+<li>Age :
+  <%= @contact['age'] %> years
+</li>
+
 <li>Gender :
   <%= @contact['gender'] %>
 </li>
@@ -11,8 +17,14 @@
 <li>Phone  #
   <%= @contact['phone'] %>
 </li>
-<form action="/contacts/delete" method="post">
+
 </br>
+<form action="/contacts/<%= @contact['id'] %>/edit" method="get">
+  <a href="/contacts/<%= @contact['id'] %>/edit">
+    <button>Edit Contact</button>
+  </a>
+</form>
+<form action="/contacts/<%= @contact['id'] %>/delete" method="post">
   <button>Delete Contact</button>
 </br>
-
+</form>
