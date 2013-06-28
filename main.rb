@@ -20,5 +20,6 @@ get '/contacts/:name' do
   db = PG.connect(:dbname => 'address_book', :host => 'localhost')
   sql = "SELECT * from contacts WHERE first = '#{@first_name}'"
   @contact = db.exec(sql).first
+  db.close
   erb :contact
 end
