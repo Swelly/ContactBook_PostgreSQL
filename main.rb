@@ -15,6 +15,14 @@ get '/contacts' do
   erb :contacts
 end
 
+get '/contact/new_contact' do
+  erb :new_contact
+end
+
+post '/contact/new_contact' do
+  erb :new_contact
+end
+
 get '/contacts/:name' do
   @first_name = params[:name]
   db = PG.connect(:dbname => 'address_book', :host => 'localhost')
