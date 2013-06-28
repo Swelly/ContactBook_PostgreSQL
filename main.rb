@@ -16,4 +16,6 @@ get '/contacts' do
 end
 
 get '/contacts/:name' do
+  @first_name = params[:name]
+  erb :contact
 end
