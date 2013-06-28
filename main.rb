@@ -9,5 +9,11 @@ get '/' do
 end
 
 get '/contacts' do
-  "Contacts should go here"
+  db = PG.connect(:dbname => 'address_book', :host => 'localhost')
+  sql = "SELECT * FROM contacts"
+  @contacts = db.exec(sql)
+  erb :contacts
+end
+
+get '/contacts/:name' do
 end
