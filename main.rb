@@ -30,10 +30,10 @@ post '/contacts' do
   last = params[:last]
   age = params[:age]
   gender = params[:gender]
-  dtgd = params[:dtgd]
+  dtgt = params[:dtgt]
   phone = params[:phone]
 
-  sql = "INSERT INTO CONTACTS (first, last, age, gender, dtgd, phone) VALUES ('#{first}', '#{last}', #{age}, '#{gender}', '#{dtgd}', '#{phone}')"
+  sql = "INSERT INTO CONTACTS (first, last, age, gender, dtgt, phone) VALUES ('#{first}', '#{last}', #{age}, '#{gender}', '#{dtgt}', '#{phone}')"
 
   db = PG.connect(:dbname => 'address_book', :host => 'localhost')
   db.exec(sql)
@@ -41,10 +41,17 @@ post '/contacts' do
   redirect to('/contacts')
 end
 
-get '/contacts/:name' do
-  @first_name = params[:name]
+post '/contacts/delete' do
+  "Concrete shoes"
+  #Figure out who to delete
+  #Write sql to delete them
+  #Go someplace
+end
+
+get '/contacts/:id' do
+  @id = params[:id]
   db = PG.connect(:dbname => 'address_book', :host => 'localhost')
-  sql = "SELECT * from contacts WHERE first = '#{@first_name}'"
+  sql = "SELECT * from contacts WHERE id = #{@id}"
   @contact = db.exec(sql).first
   db.close
   erb :contact

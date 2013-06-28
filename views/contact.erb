@@ -5,13 +5,14 @@
 </li>
 
 <li>Down to get down :
-  <%= @contact['dtgd'] %>
+  <%= @contact['dtgt'] %>
 </li>
 
 <li>Phone  #
   <%= @contact['phone'] %>
 </li>
+<form action="/contacts/delete" method="post">
 </br>
+  <button>Delete Contact</button>
 </br>
-<a href="/contact/new_contact">New Contact</a>
 
