@@ -13,9 +13,9 @@ require 'rainbow'
 #run sql database
 def run_sql(sql)
   db = PG.connect(:dbname => 'address_book', :host => 'localhost')
-  result = db.exec(sql)
+  #result = db.exec(sql)
   db.close
-  result
+  #Return whatever needs to happen now
 end
 
 #Show index page
